@@ -1,5 +1,5 @@
 // 原生SDK提供的API,直接实现app对应的所有js的api，在这里再做一次bridge的api封装
-let sensors = uni.requireNativePlugin('Sensorsdata-UniPlugin-App')
+let sensors = uni.requireNativePlugin('Sensorsdata-UniPlugin-App');
 
 let sa = {
 	// 提供扩展性
@@ -22,15 +22,15 @@ let sa = {
 		Object.keys(para).forEach(
 			(key) => {
 				if (key in relation && typeof sensors[relation[key]] === 'function') {
-					if(key === 'app_data_collect'){
-						if(para[key] === true){
-						  sensors[relation[key]].call(sensors, para[key]);							
+					if (key === 'app_data_collect') {
+						if (para[key] === true) {
+							sensors[relation[key]].call(sensors, para[key]);
 						}
-					}else{
+					} else {
 						sensors[relation[key]].call(sensors, para[key]);
-					}					
+					}
 				} else {
-					console.log('setPara 在 App 中不支持设置' + key );
+					console.log('setPara 在 App 中不支持设置' + key);
 				}
 
 			}
@@ -54,7 +54,48 @@ let sa = {
 	incrementProfile: sensors.profileIncrement.bind(sensors),
 	appendProfile: sensors.profileAppend.bind(sensors),
 	unsetProfile: sensors.profileUnset.bind(sensors),
-	deleteProfile: sensors.profileDelete.bind(sensors)
+	deleteProfile: sensors.profileDelete.bind(sensors),
+
+	//
+	clearTrackTimer: sensors.clearTrackTimer.bind(sensors),
+	resumeTrackScreenOrientation: sensors.resumeTrackScreenOrientation.bind(sensors),
+	stopTrackScreenOrientation: sensors.stopTrackScreenOrientation.bind(sensors),
+	getScreenOrientation: sensors.getScreenOrientation.bind(sensors),
+	getSuperProperties: sensors.getSuperProperties.bind(sensors),
+	profileUnsetPushId: (pushKey = '') => {
+		sensors.profileUnsetPushId.call(sensors, pushKey)
+	},
+	profilePushId: (pushKey = '', pushId = '') => {
+		sensors.profilePushId.call(sensors, pushKey, pushId)
+	},
+	enableTrackScreenOrientation: (enable = false) => {
+		sensors.enableTrackScreenOrientation.call(sensors, enable)
+	},
+	trackViewScreen: (url = '', properties = {}) => {
+		sensors.trackViewScreen.call(sensors, url, properties)
+	},
+	trackTimerEnd: (eventName = '', properties = {}) => {
+		sensors.trackTimerEnd.call(sensors, eventName, properties)
+	},
+	trackTimerResume: (eventName = '') => {
+		sensors.trackTimerResume.call(sensors, eventName)
+	},
+	trackTimerPause: (eventName = '') => {
+		sensors.trackTimerPause.call(sensors, eventName)
+	},
+	trackTimerStart: (eventName = '') => {
+		return sensors.trackTimerStart.call(sensors, eventName)
+	},
+	removeTimer: (eventName = '') => {
+		sensors.removeTimer.call(sensors, eventName)
+	},
+	enableDeepLinkInstallSource: (enable = false) => {
+		sensors.enableDeepLinkInstallSource.call(sensors, enable);
+	},
+	trackDeepLinkLaunch: (deepLinkUrl = '', oaid = '') => {
+		sensors.trackDeepLinkLaunch.call(sensors, deepLinkUrl, oaid);
+	}
+	//
 
 };
 

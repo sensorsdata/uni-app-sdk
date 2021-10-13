@@ -41,6 +41,56 @@ let sa = {
 	appFlush: () => {
 		console.log('common-api,当前平台不支持此方法 appFlush');
 	},
+
+	removeTimer: () => {
+		console.log('common-api,当前平台不支持此方法 removeTimer');
+	},
+	trackTimerStart: () => {
+		console.log('common-api,当前平台不支持此方法 trackTimerStart');
+	},
+	trackTimerPause: () => {
+		console.log('common-api,当前平台不支持此方法 trackTimerPause');
+	},
+	trackTimerResume: () => {
+		console.log('common-api,当前平台不支持此方法 trackTimerResume');
+	},
+	trackTimerEnd: () => {
+		console.log('common-api,当前平台不支持此方法 trackTimerEnd');
+	},
+	clearTrackTimer: () => {
+		console.log('common-api,当前平台不支持此方法 clearTrackTimer');
+	},
+	trackViewScreen: () => {
+		console.log('common-api,当前平台不支持此方法 trackViewScreen');
+	},
+	getSuperProperties: () => {
+		console.log('common-api,当前平台不支持此方法 getSuperProperties');
+	},
+	enableTrackScreenOrientation: () => {
+		console.log('common-api,当前平台不支持此方法 enableTrackScreenOrientation');
+	},
+	resumeTrackScreenOrientation: () => {
+		console.log('common-api,当前平台不支持此方法 resumeTrackScreenOrientation');
+	},
+	stopTrackScreenOrientation: () => {
+		console.log('common-api,当前平台不支持此方法 stopTrackScreenOrientation');
+	},
+	getScreenOrientation: () => {
+		console.log('common-api,当前平台不支持此方法 getScreenOrientation');
+	},
+	profileUnsetPushId: () => {
+		console.log('common-api,当前平台不支持此方法 profileUnsetPushId');
+	},
+	profilePushId: () => {
+		console.log('common-api,当前平台不支持此方法 profilePushId');
+	},
+	enableDeepLinkInstallSource: () => {
+		console.log('common-api,当前平台不支持此方法 enableDeepLinkInstallSource');
+	},
+	trackDeepLinkLaunch: () => {
+		console.log('common-api,当前平台不支持此方法 trackDeepLinkLaunch');
+	},
+
 	// 各端通用的常用API
 	getDistinctID: () => {
 		console.log('common-api,当前平台不支持此方法 getDistinctID');

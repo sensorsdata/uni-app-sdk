@@ -57,7 +57,7 @@ if (typeof bridgeAPI === 'undefined') {
 		// 如果是track，先加属性
 		if (key === 'track') {
 			let oldTrack = sa.track;
-			sa.track = function() {
+			sa.track = function () {
 				let arr = [].slice.call(arguments, 0);
 				if (++lib_plugin_track_timer === 1) {
 					if (typeof arr[1] === 'object' && arr[1] !== null) {
