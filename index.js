@@ -34,6 +34,7 @@ import bridgeAPI from './middle/toutiao.js';
 let sa = {};
 
 let lib_plugin_track_timer = 0;
+let js_uniapp_version = 'js_uniapp:0.0.3';
 
 //检查是否是支持的平台，如果不支持就使用commonAPI
 if (typeof bridgeAPI === 'undefined') {
@@ -61,10 +62,10 @@ if (typeof bridgeAPI === 'undefined') {
 				let arr = [].slice.call(arguments, 0);
 				if (++lib_plugin_track_timer === 1) {
 					if (typeof arr[1] === 'object' && arr[1] !== null) {
-						arr[1]['$lib_plugin_version'] = ['js_uniapp:0.0.1'];
+						arr[1]['$lib_plugin_version'] = [js_uniapp_version];
 					} else {
 						arr[1] = {
-							$lib_plugin_version: ['js_uniapp:0.0.1']
+							$lib_plugin_version: [js_uniapp_version]
 						};
 					}
 				}
