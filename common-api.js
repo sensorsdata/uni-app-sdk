@@ -139,6 +139,22 @@ let sa = {
 	},
 	deleteProfile: () => {
 		console.log('common-api,当前平台不支持此方法 deleteProfile');
+	},
+
+	popupLoadSuccess: (callback) => {
+		console.log('common-api,当前平台不支持此方法 popupLoadSuccess');
+	},
+	popupClose: (callback) => {
+		console.log('common-api,当前平台不支持此方法 popupClose');
+	},
+	popupClick: (callback) => {
+		console.log('common-api,当前平台不支持此方法 popupClick');
+	},
+	popupLoadFailed: (callback) => {
+		console.log('common-api,当前平台不支持此方法 popupLoadFailed');
+	},
+	enablePopup: () => {
+		console.log('common-api,当前平台不支持此方法 enablePopup');
 	}
 
 };

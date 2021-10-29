@@ -94,8 +94,23 @@ let sa = {
 	},
 	trackDeepLinkLaunch: (deepLinkUrl = '', oaid = '') => {
 		sensors.trackDeepLinkLaunch.call(sensors, deepLinkUrl, oaid);
-	}
+	},
 	//
+	popupLoadSuccess: (callback) => {
+		sensors.popupLoadSuccess(callback);
+	},
+	popupClose: (callback) => {
+		sensors.popupClose(callback);
+	},
+	popupClick: (callback) => {
+		sensors.popupClick(callback);
+	},
+	popupLoadFailed: (callback) => {
+		sensors.popupLoadFailed(callback);
+	},
+	enablePopup: () => {
+		sensors.enablePopup();
+	}
 
 };
 
