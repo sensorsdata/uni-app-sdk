@@ -2,12 +2,18 @@
 import sensors from '../jssdk/weixin.js';
 import popups from '../plugin/wx-popup.esm.min';
 
+var isParaSet = false;
 // 提供各端一致的公共API
 let sa = {
 	// 提供扩展性
 	instance: sensors,
 	// 提供初始化和配置参数
-	init: sensors.init.bind(sensors),
+	init: function (para) {
+		if (!isParaSet) {
+			sa.setPara(para);
+		}
+		sensors.init(para);
+	},
 	//弹窗初始化
 	popupInit: (para) => {
 		if (typeof para === "object" && para !== null) {
@@ -21,6 +27,7 @@ let sa = {
 		};
 		Object.assign(defaultValue, para);
 		sensors.setPara.call(sensors, defaultValue);
+		isParaSet = true;
 	},
 	// 各端通用的常用API
 	getDistinctID: sensors.store.getDistinctId.bind(sensors.store),
@@ -30,13 +37,13 @@ let sa = {
 		console.log('web 中不支持此方法');
 	},
 	popupLoadSuccess: (callback) => {
-		if(popups.CAMPAIGN_ERROR && popups.CAMPAIGN_ERROR['onStart']) {
+		if (popups.CAMPAIGN_ERROR && popups.CAMPAIGN_ERROR['onStart']) {
 			delete popups.CAMPAIGN_ERROR['onStart']
 		};
 		popups.campaign_listener.onStart = callback;
 	},
 	popupClose: (callback) => {
-		if(popups.CAMPAIGN_ERROR && popups.CAMPAIGN_ERROR['onEnd']) {
+		if (popups.CAMPAIGN_ERROR && popups.CAMPAIGN_ERROR['onEnd']) {
 			delete popups.CAMPAIGN_ERROR['onEnd']
 		};
 		popups.campaign_listener.onEnd = callback;
@@ -45,7 +52,7 @@ let sa = {
 		popups.info.popup_listener.onClick = callback;
 	},
 	popupLoadFailed: (callback) => {
-		if(popups.CAMPAIGN_ERROR && popups.CAMPAIGN_ERROR['onFailed']) {
+		if (popups.CAMPAIGN_ERROR && popups.CAMPAIGN_ERROR['onFailed']) {
 			delete popups.CAMPAIGN_ERROR['onFailed']
 		};
 		popups.campaign_listener.onFailed = callback;

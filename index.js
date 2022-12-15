@@ -1,3 +1,7 @@
+/*
+ * @Date: 2022-10-28 10:30:10
+ * @File: 
+ */
 /**
  * SensorsData uni-app SDK 
  * APP原生SDK所有API -> JS可用的所有API -> 各端通用的有限的桥API
@@ -34,7 +38,7 @@ import bridgeAPI from './middle/toutiao.js';
 let sa = {};
 
 let lib_plugin_track_timer = 0;
-let js_uniapp_version = 'js_uniapp:0.0.6';
+let js_uniapp_version = 'js_uniapp:0.0.7';
 
 //检查是否是支持的平台，如果不支持就使用commonAPI
 if (typeof bridgeAPI === 'undefined') {

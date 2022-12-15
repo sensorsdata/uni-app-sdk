@@ -15,7 +15,7 @@ SensorsAnalytics SDK 是国内第一家开源商用版用户行为采集 SDK，�
 
 ## 版本更新记录
 
-请参见 [release 发版记录](https://github.com/sensorsdata/sa-sdk-cpp/releases)
+请参见 [release 发版记录](https://github.com/sensorsdata/uni-app-sdk/releases)
 
 ## 讨论
 
@@ -38,7 +38,7 @@ SensorsAnalytics SDK 是国内第一家开源商用版用户行为采集 SDK，�
 
 ## License
 
-Copyright 2015－2021 Sensors Data Inc.
+Copyright 2015－2022 Sensors Data Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

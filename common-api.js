@@ -3,7 +3,7 @@
  * 需要做类型检查，每个方法必须返回 true false，用来作为参数检查的结果
  */
 
-let sa = {
+ let sa = {
 	// 提供扩展性
 	instance: null,
 	// 提供初始化和配置参数
@@ -155,6 +155,9 @@ let sa = {
 	},
 	enablePopup: () => {
 		console.log('common-api,当前平台不支持此方法 enablePopup');
+	},
+	popupInit:() => {
+		console.log('common-api,当前平台不支持此方法 popupInit');
 	}
 
 };
