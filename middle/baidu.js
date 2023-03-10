@@ -1,5 +1,5 @@
 // 原生SDK提供的API
-let sensors = require('../jssdk/baidu.js');
+import sensors from '../jssdk/baidu.js';
 
 // 提供各端一致的公共API
 var isParaSet = false;
@@ -29,9 +29,5 @@ let sa = {
 		console.log('web 中不支持此方法');
 	}
 };
-
-
-
-
 
 export default sa;

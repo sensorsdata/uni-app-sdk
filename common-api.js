@@ -3,7 +3,7 @@
  * 需要做类型检查，每个方法必须返回 true false，用来作为参数检查的结果
  */
 
- let sa = {
+let sa = {
 	// 提供扩展性
 	instance: null,
 	// 提供初始化和配置参数
@@ -156,10 +156,33 @@
 	enablePopup: () => {
 		console.log('common-api,当前平台不支持此方法 enablePopup');
 	},
-	popupInit:() => {
+	popupInit: () => {
 		console.log('common-api,当前平台不支持此方法 popupInit');
-	}
+	},
 
+	// id3
+	bind: () => {
+		console.log('common-api,当前平台不支持此方法 bind');
+	},
+	unbind: () => {
+		console.log('common-api,当前平台不支持此方法 unbind');
+	},
+	loginWithKey: () => {
+		console.log('common-api,当前平台不支持此方法 loginWithKey');
+	},
+	// id3 微信专用
+	bindOpenid: () => {
+		console.log('common-api,当前平台不支持此方法 bindOpenid');
+	},
+	unbindOpenid: () => {
+		console.log('common-api,当前平台不支持此方法 unbindOpenid');
+	},
+	bindUnionid: () => {
+		console.log('common-api,当前平台不支持此方法 bindUnionid');
+	},
+	unbindUnionid: () => {
+		console.log('common-api,当前平台不支持此方法 unbindUnionid');
+	}
 };
 
 export default sa;

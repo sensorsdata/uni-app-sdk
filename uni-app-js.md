@@ -274,6 +274,95 @@ Page中设置：
 
 适用平台：Andorid、iOS、H5、小程序 
 
+### bind 
+
+方法说明：用于多个用户 ID 关联时调用，第一个参数从[详细的预置 id key 列表](https://manual.sensorsdata.cn/sa/latest/id-key-87163331.html)中获取，第二个参数为对应的关联用户 ID。
+调用接口后，对应的 key 和 value 会缓存在本地，后续采集的事件，均包含缓存的 ID 信息。
+
+
+适用平台：Andorid、iOS、H5、微信小程序 、支付宝小程序
+
+ |参数 |类型| 说明| 是否必选 |
+|--|--|--|--|
+ |name| String| id 键名| 是 |
+ |value| String| id 值| 是 |
+
+### unbind 
+
+方法说明：用于多个用户 ID 取消关联时调用，第一个参数为取消关联的 key，第二个参数为对应的取消关联用户 ID。
+调用接口后，会发送相关的解绑事件，同时会将本地缓存的 ID 信息中，对应的 key-value 清除（若存在）。
+
+
+适用平台：Andorid、iOS、H5、微信小程序 、支付宝小程序
+
+ |参数 |类型| 说明| 是否必选 |
+|--|--|--|--|
+ |name| String| id 键名| 是 |
+ |value| String| id 值| 是 |
+
+### loginWithKey 
+
+方法说明：用户登录时调用，第一个参数从[详细的预置 id key 列表](https://manual.sensorsdata.cn/sa/latest/id-key-87163331.html)中获取，第二个参数为对应的具体用户 ID。
+调用接口后，对应的 key 和 value 会缓存在本地，后续采集的事件，均包含缓存的 ID 信息。
+
+
+适用平台：Andorid、iOS、H5、微信小程序 、支付宝小程序
+
+ |参数 |类型| 说明| 是否必选 |
+|--|--|--|--|
+ |loginIDKey| String| id 键名| 是 |
+ |loginId| String| id 值| 是 |
+
+### bindOpenid 
+
+方法说明：多用户 ID 关联微信用户 Openid 时调用，参数为对应的关联用户 Openid。（v1.18.3 版本以上支持）。
+调用接口后，对应的 key 和 value 会缓存在本地，后续采集的事件，均包含缓存的 ID 信息。
+微信小程序 SDK 提供了 bindOpenid 接口将匿名 ID 设置为 OpenID。
+
+>⚠️此接口只有满足下面两个条件才能支持！不满足下面条件的可以使用  identify('openid', true) 接口;  
+bindOpenid 仅在 ID-Mapping 3.0 支持，使用前请确认 SA 后端是否支持 ID-Mapping 3.0;  
+bindOpenid 微信小程序 SDK 需要在 v1.18.3 版本上才支持！
+
+适用平台：微信小程序
+
+ |参数 |类型| 说明| 是否必选 |
+|--|--|--|--|
+ |openid| String| openid 值| 是 |
+
+### unbindOpenid 
+
+方法说明：多用户 ID 取消关联微信用户 Openid 时调用，参数为对应的关联用户 Openid。（ v1.18.3 版本以上支持）。
+调用接口后，会发送相关的解绑事件，同时会将本地缓存的 ID 信息中，对应的 key-value 清除（若存在）。
+
+适用平台：微信小程序
+
+ |参数 |类型| 说明| 是否必选 |
+|--|--|--|--|
+ |openid| String| openid 值| 是 |
+
+### bindUnionid 
+
+方法说明：多用户 ID 关联微信用户 Unionid 时调用，参数为对应的关联用户 Unionid。（v1.18.3 版本以上支持。
+调用接口后，对应的 key 和 value 会缓存在本地，后续采集的事件，均包含缓存的 ID 信息。
+
+适用平台：微信小程序
+
+ |参数 |类型| 说明| 是否必选 |
+|--|--|--|--|
+ |unionid| String| unionid 值| 是 |
+
+### unbindUnionid 
+
+方法说明：多用户 ID 取消关联微信用户 Unionid 时调用，参数为对应的关联用户 Unionid。（v1.18.3 版本以上支持）。
+调用接口后，会发送相关的解绑事件，同时会将本地缓存的 ID 信息中，对应的 key-value 清除（若存在）。
+
+适用平台：微信小程序
+
+ |参数 |类型| 说明| 是否必选 |
+|--|--|--|--|
+ |unionid| String| unionid 值| 是 |
+
+
 ### trackAppInstall 
 
 方法说明：记录 $AppInstall 事件，用于在 App 首次启动时追踪渠道来源，并设置追踪渠道事件的属性 

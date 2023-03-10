@@ -1,5 +1,5 @@
 // 原生SDK提供的API
-let sensors = require('../jssdk/toutiao.js');
+import sensors from '../jssdk/toutiao.js';
 
 // 提供各端一致的公共API
 var isParaSet = false;
