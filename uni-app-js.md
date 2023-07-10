@@ -4,7 +4,9 @@
 
 #### 本插件适用于 H5、APP、微信小程序、阿里小程序、百度小程序和头条小程序进行数据采集。 
 
-注：APP 需集成 Native 端插件，否则无法进行 APP 端数据采集，具体集成可参考 [神策 uni-app 原生插件](https://ext.dcloud.net.cn/plugin?id=4179)。 
+注：
+1. VUE3 开发环境下不支持 $MPClick 全埋点事件
+2. APP 需集成 Native 端插件，否则无法进行 APP 端数据采集，具体集成可参考 [神策 uni-app 原生插件](https://ext.dcloud.net.cn/plugin?id=4179)。
 
 ## 2. 使用方式 
 
@@ -27,7 +29,7 @@ App中设置：
             appHide: true, // 默认为 true，false 则关闭 $MPHide 事件采集
             pageShow: true, // 默认为 true，false 则关闭 $MPViewScreen 事件采集
             pageShare: true, // 默认为 true，false 则关闭 $MPShare 事件采集
-            mpClick: false, // 默认为 false，true 则开启 $MPClick 事件采集
+            mpClick: false, // 默认为 false，true 则开启 $MPClick 事件采集， VUE3 不支持
             mpFavorite: true, // 默认为 true，false 则关闭 $MPAddFavorites 事件采集
             pageLeave: false // 默认为 false， true 则开启 $MPPageLeave事件采集
         },
@@ -101,7 +103,7 @@ App中设置：
             appHide: true, // 默认为 true，false 则关闭 $MPHide 事件采集
             pageShow: true, // 默认为 true，false 则关闭 $MPViewScreen 事件采集
             pageShare: true, // 默认为 true，false 则关闭 $MPShare 事件采集
-            mpClick: false, // 默认为 false，true 则开启 $MPClick 事件采集
+            mpClick: false, // 默认为 false，true 则开启 $MPClick 事件采集， VUE3 不支持
             mpFavorite: true, // 默认为 true，false 则关闭 $MPAddFavorites 事件采集
             pageLeave: false // 默认为 false， true 则开启 $MPPageLeave事件采集
         },

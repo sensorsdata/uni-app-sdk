@@ -17,14 +17,19 @@ let sa = {
 		};
 		Object.assign(defaultValue, para);
 		sensors.init.call(sensors, defaultValue);
+
+		var _ = sensors._;
+		if (para && _.isObject(para.global_properties)) {
+			sensors.registerPage(para.global_properties);
+		}
 	},
 	//弹窗初始化
 	popupInit: (para) => {
 		if (typeof para === "object" && para !== null) {
-			if(systemInfo.screenWidth > 1024) {
+			if (systemInfo.screenWidth > 1024) {
 				sensors.use('WebPopup', para);
 				popups = webPopups;
-			}else {
+			} else {
 				sensors.use('Popup', para);
 			}
 		}
@@ -45,25 +50,25 @@ let sa = {
 	clearRegister: () => {
 		console.log('web 中不支持此方法 - clearRegister');
 	},
-	quick:(event,para) => {
-		sensors.quick(event,para);
+	quick: (event, para) => {
+		sensors.quick(event, para);
 	},
 	popupLoadSuccess: (callback) => {
-		if(popups.info.supportCustom && popups.info.supportCustom === 'withoutCampaignListener') {
+		if (popups.info.supportCustom && popups.info.supportCustom === 'withoutCampaignListener') {
 			popups.info.supportCustom = '';
 		};
-		if(popups.info && popups.info.popup_campaign_listener) { 
+		if (popups.info && popups.info.popup_campaign_listener) {
 			popups.info.popup_campaign_listener.onStart = callback;
 		};
 	},
 	popupClose: (callback) => {
-		if(popups.info && popups.info.popup_campaign_listener) { 
+		if (popups.info && popups.info.popup_campaign_listener) {
 			popups.info.popup_campaign_listener.onEnd = callback;
 		};
 	},
 	popupClick: (callback) => {
-		if(systemInfo.screenWidth <= 1024) {
-			if(popups.info && popups.info.popup_listener) { 
+		if (systemInfo.screenWidth <= 1024) {
+			if (popups.info && popups.info.popup_listener) {
 				popups.info.popup_listener.onClick = callback;
 			};
 		} else {
@@ -71,7 +76,7 @@ let sa = {
 		}
 	},
 	popupLoadFailed: (callback) => {
-		if(popups.info && popups.info.popup_campaign_listener) { 
+		if (popups.info && popups.info.popup_campaign_listener) {
 			popups.info.popup_campaign_listener.onFailed = callback;
 		};
 	}

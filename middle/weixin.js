@@ -3,6 +3,7 @@ import sensors from '../jssdk/weixin.js';
 import popups from '../plugin/wx-popup.esm.min';
 
 var isParaSet = false;
+var _ = sensors._;
 // 提供各端一致的公共API
 let sa = {
 	// 提供扩展性
@@ -13,6 +14,10 @@ let sa = {
 			sa.setPara(para);
 		}
 		sensors.init(para);
+		
+		if (para && _.isObject(para.global_properties)) {
+			sensors.registerApp(para.global_properties);
+		}
 	},
 	//弹窗初始化
 	popupInit: (para) => {
@@ -27,6 +32,11 @@ let sa = {
 		};
 		Object.assign(defaultValue, para);
 		sensors.setPara.call(sensors, defaultValue);
+
+		if (para && _.isObject(para.global_properties)) {
+			sensors.registerApp(para.global_properties);
+		}
+
 		isParaSet = true;
 	},
 	// 各端通用的常用API

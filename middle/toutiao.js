@@ -1,6 +1,7 @@
 // 原生SDK提供的API
 import sensors from '../jssdk/toutiao.js';
 
+var _ = sensors._;
 // 提供各端一致的公共API
 var isParaSet = false;
 let sa = {
@@ -12,6 +13,9 @@ let sa = {
 			sa.setPara(para);
 		}
 		sensors.init(para);
+		if (para && _.isObject(para.global_properties)) {
+			sensors.registerApp(para.global_properties);
+		}
 	},
 	setPara: (para) => {
 		para = para || {};
@@ -20,6 +24,11 @@ let sa = {
 		};
 		Object.assign(defaultValue, para);
 		sensors.setPara.call(sensors, defaultValue);
+
+		if (para && _.isObject(para.global_properties)) {
+			sensors.registerApp(para.global_properties);
+		}
+
 		isParaSet = true;
 	},
 	// 各端通用的常用API

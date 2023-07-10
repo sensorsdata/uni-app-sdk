@@ -34,11 +34,12 @@ import bridgeAPI from './middle/baidu.js';
 import bridgeAPI from './middle/toutiao.js';
 // #endif
 
+import get_enableVue3MpClick from './vue3-mpclick';
 
 let sa = {};
 
 let lib_plugin_track_timer = 0;
-let js_uniapp_version = 'js_uniapp:0.0.8';
+let js_uniapp_version = 'js_uniapp:0.0.9';
 
 //检查是否是支持的平台，如果不支持就使用commonAPI
 if (typeof bridgeAPI === 'undefined') {
@@ -81,5 +82,7 @@ if (typeof bridgeAPI === 'undefined') {
 
 }
 
+const enableVue3MpClick = get_enableVue3MpClick(sa);
 
 export default sa;
+export { enableVue3MpClick };
