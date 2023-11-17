@@ -5,7 +5,7 @@
 #### 本插件适用于 H5、APP、微信小程序、阿里小程序、百度小程序和头条小程序进行数据采集。 
 
 注：
-1. VUE3 开发环境下不支持 $MPClick 全埋点事件
+1. VUE3 开发环境下支持 $MPClick 全埋点事件，需要单独调用 enableVue3MpClick 方法，详细参考下文 API 说明。
 2. APP 需集成 Native 端插件，否则无法进行 APP 端数据采集，具体集成可参考 [神策 uni-app 原生插件](https://ext.dcloud.net.cn/plugin?id=4179)。
 
 ## 2. 使用方式 
@@ -23,13 +23,16 @@ App中设置：
         server_url:'数据接收地址',
         show_log:false,//是否开启日志
         name:"sensors",
+        global_properties:{ // 配置全局属性，所有上报事件属性中均会携带
+            // property1: 'value1' 
+        },,
         autoTrack:{//小程序全埋点配置
             appLaunch: true, // 默认为 true，false 则关闭 $MPLaunch 事件采集
             appShow: true, // 默认为 true，false 则关闭 $MPShow 事件采集
             appHide: true, // 默认为 true，false 则关闭 $MPHide 事件采集
             pageShow: true, // 默认为 true，false 则关闭 $MPViewScreen 事件采集
             pageShare: true, // 默认为 true，false 则关闭 $MPShare 事件采集
-            mpClick: false, // 默认为 false，true 则开启 $MPClick 事件采集， VUE3 不支持
+            mpClick: false, // 默认为 false，true 则开启 $MPClick 事件采集
             mpFavorite: true, // 默认为 true，false 则关闭 $MPAddFavorites 事件采集
             pageLeave: false // 默认为 false， true 则开启 $MPPageLeave事件采集
         },
@@ -97,13 +100,16 @@ App中设置：
         server_url:'数据接收地址',
         show_log:false,//是否开启日志
         name:"sensors",
+        global_properties:{ // 配置全局属性，所有上报事件属性中均会携带
+            // property1: 'value1' 
+        },
         autoTrack:{//小程序全埋点配置
             appLaunch: true, // 默认为 true，false 则关闭 $MPLaunch 事件采集
             appShow: true, // 默认为 true，false 则关闭 $MPShow 事件采集
             appHide: true, // 默认为 true，false 则关闭 $MPHide 事件采集
             pageShow: true, // 默认为 true，false 则关闭 $MPViewScreen 事件采集
             pageShare: true, // 默认为 true，false 则关闭 $MPShare 事件采集
-            mpClick: false, // 默认为 false，true 则开启 $MPClick 事件采集， VUE3 不支持
+            mpClick: false, // 默认为 false，true 则开启 $MPClick 事件采集
             mpFavorite: true, // 默认为 true，false 则关闭 $MPAddFavorites 事件采集
             pageLeave: false // 默认为 false， true 则开启 $MPPageLeave事件采集
         },
@@ -164,6 +170,9 @@ Page中设置：
         server_url:'数据接收地址',
         show_log:false,//是否开启日志
         name:"sensors",
+        global_properties:{ // 配置全局属性，所有上报事件属性中均会携带
+            // property1: 'value1' 
+        },
         autoTrack:{//小程序全埋点配置
             appLaunch: true, // 默认为 true，false 则关闭 $MPLaunch 事件采集
             appShow: true, // 默认为 true，false 则关闭 $MPShow 事件采集
@@ -567,4 +576,24 @@ sensors.popupClick(function (valueObj) {
     console.log('click:',valueObj);
 });
 ```
+
+### enableVue3MpClick
+方法说明：开启在 VUE3 进行小程序开发场景下 $MPClick 全埋点事件采集的支持。 注意该方法需要独立引入，并非 SDK 实例上的方法。
+
+适用平台：目前支持的所有小程序
+
+ 代码示例：
+```js
+// 注意 enableVue3MpClick 方法需要从 SDK 中独立引入, 并在初始化前进行调用
+import sensors, {enableVue3MpClick} from './uni-app-sdk/index'
+
+// 调用后支持 VUE3 下正常上报 $MPClick 事件
+enableVue3MpClick();
+
+ sensors.init({
+    ... ...
+ })
+
+```
+
 <font color="red">注意：以上方法，可以直接调用，不支持的端调用后无效，控制台会打印日志</font>。
