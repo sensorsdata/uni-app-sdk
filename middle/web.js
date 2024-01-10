@@ -39,11 +39,17 @@ let sa = {
 			sa.para = para;
 		}
 	},
+	
 
 	// 各端通用的常用API
 	getDistinctID: sensors.store.getDistinctId.bind(sensors.store),
 	getAnonymousID: () => {
 		return sensors.quick('getAnonymousID');
+	},
+
+	// 获取 ID-Mapping 3.0 绑定信息
+	getIdentities: () => {
+		return sensors.getPresetProperties() && sensors.getPresetProperties().identities;
 	},
 
 	register: sensors.registerPage.bind(sensors),

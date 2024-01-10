@@ -39,7 +39,7 @@ import get_enableVue3MpClick from './vue3-mpclick';
 let sa = {};
 
 let lib_plugin_track_timer = 0;
-let js_uniapp_version = 'js_uniapp:0.1.0';
+let js_uniapp_version = 'js_uniapp:0.1.1';
 
 //检查是否是支持的平台，如果不支持就使用commonAPI
 if (typeof bridgeAPI === 'undefined') {
@@ -49,8 +49,8 @@ if (typeof bridgeAPI === 'undefined') {
 	sa = bridgeAPI;
 	/*
 	做一次common-api的遍历
-		如果bridgeAPI都实现了，就结束
-		如果bridgeAPI没有实现，从instance中获取，如果还没有就=common-api
+	  如果bridgeAPI都实现了，就结束
+	  如果bridgeAPI没有实现，从instance中获取，如果还没有就=common-api
 	*/
 	Object.keys(commonAPI).forEach((key) => {
 		if (!(key in bridgeAPI)) {

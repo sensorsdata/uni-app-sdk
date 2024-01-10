@@ -83,6 +83,12 @@ let sa = {
 	trackDeepLinkLaunch: (deepLinkUrl = '', oaid = '') => {
 		sensors.trackDeepLinkLaunch.call(sensors, deepLinkUrl, oaid);
 	},
+	getIdentities: () => {
+		return sensors.getIdentities.call(sensors);
+	},
+	resetAnonymousIdentity: (identity = '') => {
+		sensors.resetAnonymousIdentity.call(sensors, identity);
+	},
 	//
 	popupLoadSuccess: (callback) => {
 		sensors.popupLoadSuccess(callback);

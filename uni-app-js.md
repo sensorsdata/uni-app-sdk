@@ -5,6 +5,7 @@
 #### 本插件适用于 H5、APP、微信小程序、阿里小程序、百度小程序和头条小程序进行数据采集。 
 
 注：
+
 1. VUE3 开发环境下支持 $MPClick 全埋点事件，需要单独调用 enableVue3MpClick 方法，详细参考下文 API 说明。
 2. APP 需集成 Native 端插件，否则无法进行 APP 端数据采集，具体集成可参考 [神策 uni-app 原生插件](https://ext.dcloud.net.cn/plugin?id=4179)。
 
@@ -15,7 +16,8 @@
 #### 2.1.1. 方案一: globalData 全局变量方式 
 
 App中设置：
-```js
+
+```
  // 在 App.vue 或者 main.js 中设置 globalData.sensors 
 <script> import sensors from '神策 uni-app JS SDK 路径/index.js';
     //同意隐私协议后调用进行 SDK 初始化
@@ -83,17 +85,21 @@ App中设置：
     }
 </script> 
 ```
+
 Page中设置 
+
 ```
  // 在 Page 中通过 getApp().globalData.sensors 获取 
 <script> 
     var sensors = getApp().globalData.sensors;
 </script> 
 ```
+
 #### 2.1.2 方案二： import 方式 
 
 App中设置： 
-```js
+
+```
  // 在 App.vue 或者 main.js 中设置 
 <script> import sensors from '神策 uni-app JS SDK 路径/index.js'; 
     sensors.init({
@@ -143,10 +149,13 @@ App中设置：
     });
 </script> 
 ```
+
 Page中设置： 
-```js
+
+```
  <script> import sensors from '神策 uni-app JS SDK 路径/index.js'; </script> 
 ```
+
 #### 2.1.3 其他方式 
 
 这里介绍了两种使用全局变量的方式，其他方式也可以参考 uni-app 的文档 https://ask.dcloud.net.cn/article/35021 。 
@@ -159,13 +168,13 @@ Page中设置：
 
 适用平台：APP、H5、小程序 
 
- |参数| 类型  |说明 |是否必选| 
- |----|----|----| ---- |
- |init| object| 相关配置项| 是 |
-
+| 参数 | 类型   | 说明       | 是否必选 |
+| ---- | ------ | ---------- | -------- |
+| init | object | 相关配置项 | 是       |
 
 **代码示例**: 
-```js
+
+```
     sensors.init({
         server_url:'数据接收地址',
         show_log:false,//是否开启日志
@@ -203,22 +212,25 @@ Page中设置：
             }
         }
 ```
+
 ### track 
 
 方法说明：代码埋点方法，调用该接口采集自定义事件 
 
 适用平台：APP、H5、小程序 
 
- |参数 |类型 |说明 |是否必选| 
-|--|--|--|--|
- |eventName| String| 事件名称 |是| 
- |para| Object| 自定义属性 |否| 
- |callback |Function| 事件发送成功回调 仅支持 H5 |否| 
+| 参数      | 类型     | 说明                       | 是否必选 |
+| --------- | -------- | -------------------------- | -------- |
+| eventName | String   | 事件名称                   | 是       |
+| para      | Object   | 自定义属性                 | 否       |
+| callback  | Function | 事件发送成功回调 仅支持 H5 | 否       |
 
 **代码示例**: 
-```js
+
+```
  sensors.track("eventName",{key : "value"}); 
 ```
+
 ### getAppFlushInterval 
 
 方法说明：获取两次数据发送的最小时间间隔，单位毫秒 
@@ -257,9 +269,9 @@ Page中设置：
 
 适用平台：Andorid、iOS、H5、小程序 
 
- |参数 |类型| 说明| 是否必选 |
-|--|--|--|--|
-|id| String| 匿名 ID| 是| 
+| 参数 | 类型   | 说明    | 是否必选 |
+| ---- | ------ | ------- | -------- |
+| id   | String | 匿名 ID | 是       |
 
 ### getAnonymousID 
 
@@ -275,9 +287,9 @@ Page中设置：
 
 适用平台：Andorid、iOS、H5、小程序 
 
- |参数 |类型| 说明| 是否必选 |
-|--|--|--|--|
- |id| String| 登录 ID| 是 |
+| 参数 | 类型   | 说明    | 是否必选 |
+| ---- | ------ | ------- | -------- |
+| id   | String | 登录 ID | 是       |
 
 ### logout 
 
@@ -287,92 +299,94 @@ Page中设置：
 
 ### bind 
 
-方法说明：用于多个用户 ID 关联时调用，第一个参数从[详细的预置 id key 列表](https://manual.sensorsdata.cn/sa/latest/id-key-87163331.html)中获取，第二个参数为对应的关联用户 ID。
-调用接口后，对应的 key 和 value 会缓存在本地，后续采集的事件，均包含缓存的 ID 信息。
-
+方法说明：用于多个用户 ID 关联时调用，第一个参数从[详细的预置 id key 列表](https://manual.sensorsdata.cn/sa/latest/id-key-87163331.html)中获取，第二个参数为对应的关联用户 ID。 调用接口后，对应的 key 和 value 会缓存在本地，后续采集的事件，均包含缓存的 ID 信息。
 
 适用平台：Andorid、iOS、H5、微信小程序 、支付宝小程序
 
- |参数 |类型| 说明| 是否必选 |
-|--|--|--|--|
- |name| String| id 键名| 是 |
- |value| String| id 值| 是 |
+| 参数  | 类型   | 说明    | 是否必选 |
+| ----- | ------ | ------- | -------- |
+| name  | String | id 键名 | 是       |
+| value | String | id 值   | 是       |
 
 ### unbind 
 
-方法说明：用于多个用户 ID 取消关联时调用，第一个参数为取消关联的 key，第二个参数为对应的取消关联用户 ID。
-调用接口后，会发送相关的解绑事件，同时会将本地缓存的 ID 信息中，对应的 key-value 清除（若存在）。
-
+方法说明：用于多个用户 ID 取消关联时调用，第一个参数为取消关联的 key，第二个参数为对应的取消关联用户 ID。 调用接口后，会发送相关的解绑事件，同时会将本地缓存的 ID 信息中，对应的 key-value 清除（若存在）。
 
 适用平台：Andorid、iOS、H5、微信小程序 、支付宝小程序
 
- |参数 |类型| 说明| 是否必选 |
-|--|--|--|--|
- |name| String| id 键名| 是 |
- |value| String| id 值| 是 |
+| 参数  | 类型   | 说明    | 是否必选 |
+| ----- | ------ | ------- | -------- |
+| name  | String | id 键名 | 是       |
+| value | String | id 值   | 是       |
 
 ### loginWithKey 
 
-方法说明：用户登录时调用，第一个参数从[详细的预置 id key 列表](https://manual.sensorsdata.cn/sa/latest/id-key-87163331.html)中获取，第二个参数为对应的具体用户 ID。
-调用接口后，对应的 key 和 value 会缓存在本地，后续采集的事件，均包含缓存的 ID 信息。
-
+方法说明：用户登录时调用，第一个参数从[详细的预置 id key 列表](https://manual.sensorsdata.cn/sa/latest/id-key-87163331.html)中获取，第二个参数为对应的具体用户 ID。 调用接口后，对应的 key 和 value 会缓存在本地，后续采集的事件，均包含缓存的 ID 信息。
 
 适用平台：Andorid、iOS、H5、微信小程序 、支付宝小程序
 
- |参数 |类型| 说明| 是否必选 |
-|--|--|--|--|
- |loginIDKey| String| id 键名| 是 |
- |loginId| String| id 值| 是 |
+| 参数       | 类型   | 说明    | 是否必选 |
+| ---------- | ------ | ------- | -------- |
+| loginIDKey | String | id 键名 | 是       |
+| loginId    | String | id 值   | 是       |
+
+### resetAnonymousIdentity 
+
+方法说明：重置 ID-Mapping 3.0 匿名 id，只有在未登录情况下可以使用。
+
+适用平台：Andorid、iOS、H5、微信小程序 
+
+| 参数     | 类型   | 说明           | 是否必选 |
+| -------- | ------ | -------------- | -------- |
+| identity | String | 新的匿名 Id 值 | 否       |
+
+### getIdentities 
+
+方法说明：获取 ID-Mapping 3.0 功能下已绑定的业务 ID 列表。
+
+适用平台：Andorid、iOS、H5、微信小程序 
 
 ### bindOpenid 
 
-方法说明：多用户 ID 关联微信用户 Openid 时调用，参数为对应的关联用户 Openid。（v1.18.3 版本以上支持）。
-调用接口后，对应的 key 和 value 会缓存在本地，后续采集的事件，均包含缓存的 ID 信息。
-微信小程序 SDK 提供了 bindOpenid 接口将匿名 ID 设置为 OpenID。
+方法说明：多用户 ID 关联微信用户 Openid 时调用，参数为对应的关联用户 Openid。（v1.18.3 版本以上支持）。 调用接口后，对应的 key 和 value 会缓存在本地，后续采集的事件，均包含缓存的 ID 信息。 微信小程序 SDK 提供了 bindOpenid 接口将匿名 ID 设置为 OpenID。
 
->⚠️此接口只有满足下面两个条件才能支持！不满足下面条件的可以使用  identify('openid', true) 接口;  
-bindOpenid 仅在 ID-Mapping 3.0 支持，使用前请确认 SA 后端是否支持 ID-Mapping 3.0;  
-bindOpenid 微信小程序 SDK 需要在 v1.18.3 版本上才支持！
+> ⚠️此接口只有满足下面两个条件才能支持！不满足下面条件的可以使用  identify('openid', true) 接口;   bindOpenid 仅在 ID-Mapping 3.0 支持，使用前请确认 SA 后端是否支持 ID-Mapping 3.0;   bindOpenid 微信小程序 SDK 需要在 v1.18.3 版本上才支持！
 
 适用平台：微信小程序
 
- |参数 |类型| 说明| 是否必选 |
-|--|--|--|--|
- |openid| String| openid 值| 是 |
+| 参数   | 类型   | 说明      | 是否必选 |
+| ------ | ------ | --------- | -------- |
+| openid | String | openid 值 | 是       |
 
 ### unbindOpenid 
 
-方法说明：多用户 ID 取消关联微信用户 Openid 时调用，参数为对应的关联用户 Openid。（ v1.18.3 版本以上支持）。
-调用接口后，会发送相关的解绑事件，同时会将本地缓存的 ID 信息中，对应的 key-value 清除（若存在）。
+方法说明：多用户 ID 取消关联微信用户 Openid 时调用，参数为对应的关联用户 Openid。（ v1.18.3 版本以上支持）。 调用接口后，会发送相关的解绑事件，同时会将本地缓存的 ID 信息中，对应的 key-value 清除（若存在）。
 
 适用平台：微信小程序
 
- |参数 |类型| 说明| 是否必选 |
-|--|--|--|--|
- |openid| String| openid 值| 是 |
+| 参数   | 类型   | 说明      | 是否必选 |
+| ------ | ------ | --------- | -------- |
+| openid | String | openid 值 | 是       |
 
 ### bindUnionid 
 
-方法说明：多用户 ID 关联微信用户 Unionid 时调用，参数为对应的关联用户 Unionid。（v1.18.3 版本以上支持。
-调用接口后，对应的 key 和 value 会缓存在本地，后续采集的事件，均包含缓存的 ID 信息。
+方法说明：多用户 ID 关联微信用户 Unionid 时调用，参数为对应的关联用户 Unionid。（v1.18.3 版本以上支持。 调用接口后，对应的 key 和 value 会缓存在本地，后续采集的事件，均包含缓存的 ID 信息。
 
 适用平台：微信小程序
 
- |参数 |类型| 说明| 是否必选 |
-|--|--|--|--|
- |unionid| String| unionid 值| 是 |
+| 参数    | 类型   | 说明       | 是否必选 |
+| ------- | ------ | ---------- | -------- |
+| unionid | String | unionid 值 | 是       |
 
 ### unbindUnionid 
 
-方法说明：多用户 ID 取消关联微信用户 Unionid 时调用，参数为对应的关联用户 Unionid。（v1.18.3 版本以上支持）。
-调用接口后，会发送相关的解绑事件，同时会将本地缓存的 ID 信息中，对应的 key-value 清除（若存在）。
+方法说明：多用户 ID 取消关联微信用户 Unionid 时调用，参数为对应的关联用户 Unionid。（v1.18.3 版本以上支持）。 调用接口后，会发送相关的解绑事件，同时会将本地缓存的 ID 信息中，对应的 key-value 清除（若存在）。
 
 适用平台：微信小程序
 
- |参数 |类型| 说明| 是否必选 |
-|--|--|--|--|
- |unionid| String| unionid 值| 是 |
-
+| 参数    | 类型   | 说明       | 是否必选 |
+| ------- | ------ | ---------- | -------- |
+| unionid | String | unionid 值 | 是       |
 
 ### trackAppInstall 
 
@@ -380,9 +394,9 @@ bindOpenid 微信小程序 SDK 需要在 v1.18.3 版本上才支持！
 
 适用平台：Andorid、iOS 
 
- |参数 |类型| 说明| 是否必选 |
-|--|--|--|--|
-|para |Object| 激活事件自定义属性 |否| 
+| 参数 | 类型   | 说明               | 是否必选 |
+| ---- | ------ | ------------------ | -------- |
+| para | Object | 激活事件自定义属性 | 否       |
 
 ### appFlush 
 
@@ -396,34 +410,35 @@ bindOpenid 微信小程序 SDK 需要在 v1.18.3 版本上才支持！
 
 适用平台：Andorid、iOS、H5、小程序 
 
- |参数 |类型| 说明| 是否必选 |
-|--|--|--|--|
- |para |Object |全局公共属性 |是| 
-
+| 参数 | 类型   | 说明         | 是否必选 |
+| ---- | ------ | ------------ | -------- |
+| para | Object | 全局公共属性 | 是       |
 
 **代码示例**: 
-```js
+
+```
  sensors.register({key1:"value1",key2 : "value2",}); 
 ```
-<font color=#FF000 size=2>**注意:**<br>H5 的在页面生命周期内 
-小程序是在 App 生命周期内 
-App 是永久的 </font>
 
-###  unRegister 
+**注意:** H5 的在页面生命周期内 小程序是在 App 生命周期内 App 是永久的 
+
+### unRegister 
 
 方法说明：删除某些事件公共属性 
 
 适用平台：Andorid、iOS 
 
- |参数 |类型| 说明| 是否必选 |
-|--|--|--|--|
-|name |string| 需删除的属性名称| 是| 
+| 参数 | 类型   | 说明             | 是否必选 |
+| ---- | ------ | ---------------- | -------- |
+| name | string | 需删除的属性名称 | 是       |
 
 **代码示例**: 
-```js
+
+```
  sensors.unRegister("key1"); 
 ```
-###  clearRegister 
+
+### clearRegister 
 
 方法说明：删除所有事件公共属性 
 
@@ -435,26 +450,29 @@ App 是永久的 </font>
 
 适用平台：Andorid、iOS、H5、小程序 
 
-| 参数 |类型 |说明 |是否必选| 
-|--|--|--|--|
-| para |Object| 用户属性 |是| 
+| 参数 | 类型   | 说明     | 是否必选 |
+| ---- | ------ | -------- | -------- |
+| para | Object | 用户属性 | 是       |
 
 **代码示例**: 
-```js
+
+```
  sensors.setProfile({key1:"value1",key2:"value2"}); 
 ```
+
 ### setOnceProfile 
 
 方法说明：首次设置用户属性，如果之前存在，则忽略，否则，新创建 
 
 适用平台：Andorid、iOS、H5、小程序 
 
- |参数 |类型| 说明| 是否必选 |
-|--|--|--|--|
- |para| Object| 用户属性| 是| 
+| 参数 | 类型   | 说明     | 是否必选 |
+| ---- | ------ | -------- | -------- |
+| para | Object | 用户属性 | 是       |
 
 **代码示例**: 
-```js
+
+```
  sensors.setOnceProfile({key1:"value1",key2:"value2"}); 
 ```
 
@@ -464,39 +482,43 @@ App 是永久的 </font>
 
 适用平台：Andorid、iOS、H5、小程序 
 
- |参数 |类型| 说明| 是否必选 |
-|--|--|--|--|
- |para| Object[value:number] |增加数值属性| 是| 
+| 参数 | 类型                 | 说明         | 是否必选 |
+| ---- | -------------------- | ------------ | -------- |
+| para | Object[value:number] | 增加数值属性 | 是       |
 
 **代码示例**: 
-```js
+
+```
  sensors.incrementProfile({key1:2,key2:2}); 
 ```
+
 ### appendProfile 
 
 方法说明：给一个列表类型的用户属性增加一个元素 
 
 适用平台：Andorid、iOS、H5、小程序 
 
- |参数 |类型| 说明| 是否必选 |
-|--|--|--|--|
- |para| Object{key:[value: array<string> string]}| 增加数值属性| 是| 
+| 参数 | 类型                                      | 说明         | 是否必选 |
+| ---- | ----------------------------------------- | ------------ | -------- |
+| para | Object{key:[value: array<string> string]} | 增加数值属性 | 是       |
 
 **代码示例**: 
-```js
+
+```
  appendProfile({fruit:["苹果","西瓜"]}) 
  appendProfile({fruit:"西瓜"}) 
  appendProfile({fruit1:["苹果","西瓜"],fruit2:["葡萄]}) 
 ```
+
 ### unsetProfile 
 
 方法说明：删除用户的一个用户属性 
 
 适用平台：Andorid、iOS、H5 
 
- |参数 |类型| 说明| 是否必选 |
-|--|--|--|--|
- |name| string| 属性名称| 是| 
+| 参数 | 类型   | 说明     | 是否必选 |
+| ---- | ------ | -------- | -------- |
+| name | string | 属性名称 | 是       |
 
 ### deleteProfile 
 
@@ -505,15 +527,17 @@ App 是永久的 </font>
 适用平台：Andorid、iOS、H5 
 
 ### popupClose
-方法说明：设置弹窗按钮关闭回调 
-适用平台：Andorid、iOS、H5 
-|参数 |类型| 说明| 是否必选 |
-|--|--|--|--|
- |plan_id| string   | plan_id 计划ID| 否| 
- |valueObj| object| cvalueObj 弹窗内容对象（在 sf 中配置的弹窗内容）| 否|
- 
+
+方法说明：设置弹窗按钮关闭回调  适用平台：Andorid、iOS、H5 
+
+| 参数     | 类型   | 说明                                             | 是否必选 |
+| -------- | ------ | ------------------------------------------------ | -------- |
+| plan_id  | string | plan_id 计划ID                                   | 否       |
+| valueObj | object | cvalueObj 弹窗内容对象（在 sf 中配置的弹窗内容） | 否       |
+
  代码示例：
-```js
+
+```
  注意 sensors 需要在 main.js 设置全局 
  /** 对弹窗点击事件，绑定事件处理函数 
    * @param {string} plan_id 计划ID 
@@ -523,12 +547,14 @@ App 是永久的 </font>
         console.log('plan_id: ', plan_id, ' valueObj: ', valueObj); 
     }); 
 ```
+
 ### popupLoadSuccess
-方法说明：设置弹窗加载成功回调  
-适用平台：Andorid、iOS、H5 
+
+方法说明：设置弹窗加载成功回调   适用平台：Andorid、iOS、H5 
 
  代码示例：
-```js
+
+```
  注意 sensors 需要在 main.js 设置全局 
  /** 
    * @param {string} plan_id 计划ID 
@@ -538,17 +564,20 @@ App 是永久的 </font>
         console.log('加载弹窗成功： ', data); 
     }); 
 ```
+
 ### popLoadFailed
-方法说明：设置弹窗加载失败回调 
-适用平台：Andorid、iOS、H5
-|参数 |类型| 说明| 是否必选 |
-|--|--|--|--|
- |valueObj| object| 弹窗内容对象（在 sf 中配置的弹窗内容）| 否| 
- |code| string| code 错误码| 否|
- |message| string| 错误信息| 否|
- 
+
+方法说明：设置弹窗加载失败回调  适用平台：Andorid、iOS、H5
+
+| 参数     | 类型   | 说明                                   | 是否必选 |
+| -------- | ------ | -------------------------------------- | -------- |
+| valueObj | object | 弹窗内容对象（在 sf 中配置的弹窗内容） | 否       |
+| code     | string | code 错误码                            | 否       |
+| message  | string | 错误信息                               | 否       |
+
  代码示例：
-```js
+
+```
  注意 sensors 需要在 main.js 设置全局 
  /** 
    * @param {object} valueObj 弹窗内容对象（在 sf 中配置的弹窗内容） 
@@ -559,15 +588,18 @@ App 是永久的 </font>
         console.log('失败回调： '); 
     }); 
 ```
+
 ### popupClick 
-方法说明：设置弹窗点击回调
-适用平台：Andorid、iOS、H5 
-|参数 |类型| 说明| 是否必选 |
-|--|--|--|--|
- |valueObj| object| 弹窗内容对象（在 sf 中配置的弹窗内容）| 否| 
- 
+
+方法说明：设置弹窗点击回调 适用平台：Andorid、iOS、H5 
+
+| 参数     | 类型   | 说明                                   | 是否必选 |
+| -------- | ------ | -------------------------------------- | -------- |
+| valueObj | object | 弹窗内容对象（在 sf 中配置的弹窗内容） | 否       |
+
  代码示例：
-```js
+
+```
  注意 sensors 需要在 main.js 设置全局
 /**
  * @param {object} valueObj 弹窗内容对象（在 sf 中配置的弹窗内容）
@@ -578,12 +610,14 @@ sensors.popupClick(function (valueObj) {
 ```
 
 ### enableVue3MpClick
+
 方法说明：开启在 VUE3 进行小程序开发场景下 $MPClick 全埋点事件采集的支持。 注意该方法需要独立引入，并非 SDK 实例上的方法。
 
 适用平台：目前支持的所有小程序
 
  代码示例：
-```js
+
+```
 // 注意 enableVue3MpClick 方法需要从 SDK 中独立引入, 并在初始化前进行调用
 import sensors, {enableVue3MpClick} from './uni-app-sdk/index'
 
@@ -593,7 +627,6 @@ enableVue3MpClick();
  sensors.init({
     ... ...
  })
-
 ```
 
-<font color="red">注意：以上方法，可以直接调用，不支持的端调用后无效，控制台会打印日志</font>。
+注意：以上方法，可以直接调用，不支持的端调用后无效，控制台会打印日志。

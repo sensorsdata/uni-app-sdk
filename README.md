@@ -17,18 +17,6 @@
 
 请参见 [release 发版记录](https://github.com/sensorsdata/uni-app-sdk/releases)
 
-## 讨论
-
-| 扫码加入神策数据开源社区 QQ 群<br>群号：785122381 | 扫码加入神策数据开源社区微信群 |
-| ------ | ------ |
-|![ QQ 讨论群](https://opensource.sensorsdata.cn/wp-content/uploads/ContentCommonPic_1.png) | ![ 微信讨论群 ](https://opensource.sensorsdata.cn/wp-content/uploads/ContentCommonPic_2.png) |
-
-## 公众号
-
-| 扫码关注<br>神策数据开源社区 | 扫码关注<br>神策数据开源社区服务号 |
-| ------ | ------ |
-|![ 微信订阅号 ](https://opensource.sensorsdata.cn/wp-content/uploads/ContentCommonPic_3.png) | ![ 微信服务号 ](https://opensource.sensorsdata.cn/wp-content/uploads/ContentCommonPic_4.png) |
-
 ## 新书推荐
 
 | 《ASM 全埋点开发实战》 | 《数据驱动：从方法到实践》 | 《Android 全埋点解决方案》 | 《iOS 全埋点解决方案》
@@ -51,5 +39,4 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-
 

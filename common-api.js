@@ -160,7 +160,7 @@ let sa = {
 		console.log('common-api,当前平台不支持此方法 popupInit');
 	},
 
-	// id3
+	// ID-Mapping 3.0
 	bind: () => {
 		console.log('common-api,当前平台不支持此方法 bind');
 	},
@@ -170,6 +170,13 @@ let sa = {
 	loginWithKey: () => {
 		console.log('common-api,当前平台不支持此方法 loginWithKey');
 	},
+	resetAnonymousIdentity: () => {
+		console.log('common-api,当前平台不支持此方法 resetAnonymousIdentity');
+	},
+	getIdentities: () => {
+		console.log('common-api,当前平台不支持此方法 getIdentities');
+	},
+	
 	// id3 微信专用
 	bindOpenid: () => {
 		console.log('common-api,当前平台不支持此方法 bindOpenid');
