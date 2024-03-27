@@ -98,6 +98,9 @@ let sa = {
 	getAnonymousID: () => {
 		console.log('common-api,当前平台不支持此方法 getAnonymousID');
 	},
+	getPresetProperties: () => {
+		console.log('common-api,当前平台不支持此方法 getPresetProperties');
+	},
 
 	register: (para) => {
 		console.log('common-api,当前平台不支持此方法 register');
