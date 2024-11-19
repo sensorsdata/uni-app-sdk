@@ -2,11 +2,11 @@
 
 ## 1. 使用说明 
 
-#### 本插件适用于 H5、APP、微信小程序、阿里小程序、百度小程序和头条小程序进行数据采集。 
+#### 本插件适用于 H5、APP、微信小程序、阿里小程序、百度小程序、头条小程序、小红书小程序进行数据采集。 
 
 注：
 
-1. VUE3 开发环境下支持 $MPClick 全埋点事件，需要单独调用 enableVue3MpClick 方法，详细参考下文 API 说明。
+1.  对于 VUE3 的点击全埋点建议手动触发，默认不支持。 
 2. APP 需集成 Native 端插件，否则无法进行 APP 端数据采集，具体集成可参考 [神策 uni-app 原生插件](https://ext.dcloud.net.cn/plugin?id=4179)。
 
 ## 2. 使用方式 
@@ -609,24 +609,5 @@ sensors.popupClick(function (valueObj) {
 });
 ```
 
-### enableVue3MpClick
-
-方法说明：开启在 VUE3 进行小程序开发场景下 $MPClick 全埋点事件采集的支持。 注意该方法需要独立引入，并非 SDK 实例上的方法。
-
-适用平台：目前支持的所有小程序
-
- 代码示例：
-
-```
-// 注意 enableVue3MpClick 方法需要从 SDK 中独立引入, 并在初始化前进行调用
-import sensors, {enableVue3MpClick} from './uni-app-sdk/index'
-
-// 调用后支持 VUE3 下正常上报 $MPClick 事件
-enableVue3MpClick();
-
- sensors.init({
-    ... ...
- })
-```
 
 注意：以上方法，可以直接调用，不支持的端调用后无效，控制台会打印日志。

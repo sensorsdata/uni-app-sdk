@@ -1,4 +1,11 @@
+## 0.1.3 (2024-11-18)
+* 新增：uniapp 支持 小红书 SDK。
+* 小红书小程序 SDK 版本是 v0.14.3
+
+## 0.1.2 (2023-2-1)
+* 修改：去除了支持 Vue3 点击全埋点的支持说明。不建议使用这个方案，建议手动埋点。
+
 ## 0.1.1 (2023-12-27)
-新增：获取 identities 和 resetAnonymousIdentity 接口。
+* 新增：获取 identities 和 resetAnonymousIdentity 接口。
 * Web SDK 从 v1.24.13 更新到 v1.26.3
 * 微信小程序 SDK 从 v1.18.4 更新到 v1.20.2
