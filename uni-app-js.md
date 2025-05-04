@@ -137,7 +137,7 @@ App中设置：
             ios:{//iOS 特有配置
                 max_cache_size: 10000, //最大缓存条数，默认 10000 条
             }
-        }
+        }});
     //弹窗 SDK 初始化，需在 init 之后调用
     sensors.popupInit({
         // 是否打印 log 日志
