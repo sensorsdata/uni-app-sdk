@@ -38,13 +38,13 @@ sa.para = {
 sa.platform = '';
 
 sa.lib = {
-  version: '0.14.2',
+  version: '0.14.21',
   name: 'MiniGame',
   method: 'code'
 };
 sa.properties = {
   $lib: 'MiniGame',
-  $lib_version: '0.14.2'
+  $lib_version: '0.14.21'
 };
 
 sa.currentProps = {};
@@ -1929,6 +1929,9 @@ var store = {
           value: ''
         }
       });
+      if (typeof sa.para === 'object' && typeof sa.para.identify_id === 'string') {
+        sa.identify(sa.para.identify_id);
+      }
       sa.setOnceProfile({ $first_visit_time: time });
     }
     this.checkStoreInit && this.checkStoreInit();
